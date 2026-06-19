@@ -8,12 +8,12 @@ import LeaderboardEntry from '../models/leaderboard.model';
 
 dotenv.config();
 
-const MONGO_URI: string = process.env.MONGO_URI || 'mongodb://localhost:27017/octofit_db';
+import { connectDB, disconnectDB, MONGO_URI } from '../database';
 
 const seedDatabase = async (): Promise<void> => {
   console.log('Seed the octofit_db database with test data');
 
-  await mongoose.connect(MONGO_URI);
+  await connectDB();
   console.log(`Connected to MongoDB: ${MONGO_URI}`);
 
   await Promise.all([
@@ -102,8 +102,7 @@ const seedDatabase = async (): Promise<void> => {
   console.log(`- Activities: ${activities.length}`);
   console.log(`- Leaderboard entries: ${leaderboardEntries.length}`);
 
-  await mongoose.disconnect();
-  console.log('Disconnected from MongoDB');
+  await disconnectDB();
 };
 
 seedDatabase().catch((error) => {
