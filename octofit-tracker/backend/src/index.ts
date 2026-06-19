@@ -14,6 +14,7 @@ dotenv.config();
 const app: Express = express();
 const PORT: number = parseInt(process.env.PORT || '8000', 10);
 const CODESPACE_NAME: string | undefined = process.env.CODESPACE_NAME;
+const HOST: string = CODESPACE_NAME ? '0.0.0.0' : 'localhost';
 const API_BASE_URL: string = CODESPACE_NAME
   ? `https://${CODESPACE_NAME}-8000.app.github.dev`
   : 'http://localhost:8000';
@@ -61,8 +62,8 @@ app.get('/', (req: Request, res: Response) => {
 const startServer = async (): Promise<void> => {
   await connectDB();
 
-  app.listen(PORT, () => {
-    console.log(`\n🚀 Server is running on http://localhost:${PORT}`);
+  app.listen(PORT, HOST, () => {
+    console.log(`\n🚀 Server is running on http://${HOST}:${PORT}`);
     console.log(`📊 Database: ${MONGO_URI}`);
     console.log(`🌐 API base URL: ${API_BASE_URL}`);
   });
