@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { getApiBaseUrl, normalizeCollection } from '../api';
 
+// Codespaces API pattern: -8000.app.github.dev/api/workouts
+
 function formatDate(value) {
   if (!value) {
     return '—';
