@@ -1,4 +1,3 @@
-import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import User from '../models/user.model';
 import Team from '../models/team.model';
@@ -6,9 +5,9 @@ import Activity from '../models/activity.model';
 import Workout from '../models/workout.model';
 import LeaderboardEntry from '../models/leaderboard.model';
 
-dotenv.config();
-
 import { connectDB, disconnectDB, MONGO_URI } from '../database';
+
+dotenv.config();
 
 const seedDatabase = async (): Promise<void> => {
   console.log('Seed the octofit_db database with test data');
