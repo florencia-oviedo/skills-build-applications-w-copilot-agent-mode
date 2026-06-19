@@ -5,7 +5,7 @@ import Activity from '../models/activity.model';
 import Workout from '../models/workout.model';
 import LeaderboardEntry from '../models/leaderboard.model';
 
-import { connectDB, disconnectDB, MONGO_URI } from '../../database';
+import { connectDB, disconnectDB, MONGO_URI } from '../config/database';
 
 dotenv.config();
 

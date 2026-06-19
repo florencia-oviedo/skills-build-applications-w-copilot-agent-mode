@@ -7,7 +7,7 @@ import teamsRouter from './routes/teams.route';
 import activitiesRouter from './routes/activities.route';
 import workoutsRouter from './routes/workouts.route';
 import leaderboardRouter from './routes/leaderboard.route';
-import { connectDB, MONGO_URI } from '../database';
+import { connectDB, MONGO_URI } from './config/database';
 
 dotenv.config();
 
